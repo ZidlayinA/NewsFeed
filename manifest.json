@@ -1,0 +1,17 @@
+{
+    "name": "DIARIO WEB",
+    "short_name": "DIARIO WEB",
+    "theme_color": "#2196f3",
+    "background_color": "#2196f3",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "scope": "./",
+    "start_url": "./noticias/index.php",
+    "icons": [
+        {
+            "src": "./imagen_icono.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}

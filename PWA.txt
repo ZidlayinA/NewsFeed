@@ -1,0 +1,15 @@
+Instala las herramientas node y npm
+https://nodejs.org/en/download/
+
+ahora ejecuta este comando un cmd
+npm install workbox-cli --global
+
+
+
+CMD
+D:
+D:\xampp\htdocs\diario_web_demo-main
+
+workbox wizard
+
+workbox generateSW workbox-config.js

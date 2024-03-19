@@ -12,32 +12,33 @@ if (!isset($_SESSION['usuario_logueado'])) {
 ?>
 
 
-
 <!-- MENÚ NAVBAR PARA TODO EL SITIO -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow mb-5">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow mb-5">
     <div class="container">
-        <a href="../noticias/index.php" class="navbar-brand">
-            <img src="../imagenes/logos/logo.png" alt="" width="150">
+        <a href="index.php" class="navbar-brand">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+           
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
+        <h3 style="color: white;">El periodico <span style="color: blue;">.</span></h3>
+        <ul class="navbar-nav mx-auto"> 
+            
+
                 <li class="nav-item">
                     <a href="../noticias/index.php" class="nav-link link-underline">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../noticias/index.php?categoria=Negocios" class="nav-link">Negocios</a>
+                    <a href="index.php?categoria=Negocios" class="nav-link">Negocios</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../noticias/index.php?categoria=Tecnologia" class="nav-link">Tecnología</a>
+                    <a href="index.php?categoria=Tecnologia" class="nav-link">Tecnología</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../noticias/index.php?categoria=Ciencia" class="nav-link">Ciencia</a>
+                    <a href="index.php?categoria=Ciencia" class="nav-link">Ciencia</a>
                 </li>
             </ul>
 
@@ -58,8 +59,9 @@ if (!isset($_SESSION['usuario_logueado'])) {
                                 <li>
                                     <h6 class="dropdown-header">Panel Admin</h6>
                                 </li>
-                                <li><a class="dropdown-item" href="index.php">Admin usuarios</a></li>
-                                <li><a class="dropdown-item" href="todas_publicaciones.php">Admin Publicaciones</a></li>
+                                <li><a class="dropdown-item" href="../admin/mis_publicaciones.php">Admin usuarios</a></li>
+                                <li><a class="dropdown-item" href="../admin/todas_publicaciones.php">Admin Publicaciones</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider" />
                                 </li>
@@ -69,7 +71,7 @@ if (!isset($_SESSION['usuario_logueado'])) {
                             <li>
                                 <h6 class="dropdown-header">Panel Autor</h6>
                             </li>
-                            <li><a class="dropdown-item" href="mis_publicaciones.php">Mis Publicaciones</a></li>
+                            <li><a class="dropdown-item" href="../admin/index.php">Mis Publicaciones</a></li>
                             <li><a class="dropdown-item" href="../noticias/form_agregar.php">Nueva Publicación</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
@@ -78,10 +80,17 @@ if (!isset($_SESSION['usuario_logueado'])) {
                         </ul>
                     </div>
                 <?php else: ?>
-                    <a href="form_login.php" class="btn btn-outline-dark">Ingresar</a>
-                    <a class="nav-link text-center link-primary" href="agregar_usuario.php">Quiero ser autor</a>
+                    <a href="../admin/form_login.php" class="btn" >
+    <img src="../imagenes/logos/login2.png" alt="Ingresar" style="width: 40px; height: auto;"></a>
+
+
+    <a href="../admin/agregar_usuario.php" class="btn" >
+    <img src="../imagenes/logos/registrar.png" alt="Ingresar" style="width: 40px; height: auto;"></a>
+
                 <?php endif; ?>
             </div>
         </div>
     </div>
 </nav>
+
+

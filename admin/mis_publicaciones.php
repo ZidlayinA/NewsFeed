@@ -23,7 +23,7 @@ $rol= $_SESSION['rol'];
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/cac8e89f4d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../estaticos/css/style.css">
-
+    <link rel="icon" href="../imagenes/periodico.png" type="image/png">
     <title>Mis publicaciones</title>
 </head>
 
@@ -107,10 +107,9 @@ $rol= $_SESSION['rol'];
                                         <div class="">
                                             <div
                                                 class=" d-flex flex-column flex-wrap justify-content-center text-center slign-items-center w-100">
+                                                <a href="../noticias/form_editar.php?id_noticia=<?php echo isset($_GET['id_noticia']) ? $_GET['id_noticia'] : ''; ?>" class="btn btn-sm btn-dark m-1" target="_blank"><i class="fa-solid fa-pencil"></i></a>
 
-                                                <a href="<?php print('../noticias/form_editar.php?id_noticia=' . $noticia["id_noticia"] . ''); ?>"
-                                                    class="btn btn-sm btn-dark m-1"><i class="fa-solid fa-pencil"></i></a>
-                                                <a href="<?php print('../backend/borrar_noticia.php?id_noticia=' . $noticia["id_noticia"] . '&imagen=' . $noticia["imagen"] . ''); ?>"
+                                                <a href=""
                                                     class="btn btn-sm btn-outline-danger m-1"
                                                     onclick="return confirm(&quot; Desea eliminar &quot;)"><i
                                                         class="fa-solid fa-trash-can"></i></a>

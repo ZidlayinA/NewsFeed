@@ -36,7 +36,7 @@ if ($categoria == 'sociales') {
 
     <!---------- title ---------->
     <link rel="shortcut icon" href="../imagenes/logos/favicon.png" type="image/x-icon">
-    
+    <link rel="icon" href="../imagenes/periodico.png" type="image/png">
     <title>
         <?= $noticia['titulo']; ?>
     </title>
@@ -107,21 +107,30 @@ if ($categoria == 'sociales') {
                 </article>
             </section>
             <div class="comentarios">
-  <h3>Comentarios</h3>
-  <ul id="lista-comentarios"></ul>
-  <form id="formulario-comentario" action="comentarios.php" method="post">
-    <input class="form-control" type="text" name="nombre" placeholder="Nombre" required>
-    <textarea class="form-control" name="comentario" placeholder="Escribe tu comentario" required></textarea>
-    <!-- Campo oculto para la ID de la noticia -->
-    <input type="hidden" name="id_noticia" value="<?= $noticia['id_noticia']; ?>">
-    <button type="submit" class="btn btn-primary shadow-lg border-1">Enviar</button>
-    <?php require("mostrar_comentarios.php") ?>
-</form>
-</div>
-        </main>
-   
 
+            <div class="container comentarios">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h3 class="text-center mb-4">Comentarios</h3>
+            <ul id="lista-comentarios" class="list-group mb-4"></ul>
+            <form id="formulario-comentario" action="comentarios.php" method="post">
+                <div class="form-group">
+                    <input class="form-control mb-2" type="text" name="nombre" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control mb-2" name="comentario" rows="3" placeholder="Escribe tu comentario" required></textarea>
+                </div>
+                <!-- Campo oculto para la ID de la noticia -->
+                <input type="hidden" name="id_noticia" value="<?= $noticia['id_noticia']; ?>">
+                <button type="submit" class="btn btn-dark shadow-lg border-1 btn-block">Enviar</button>
+            </form>
+            <?php require("mostrar_comentarios.php") ?>
+        </div>
     </div>
+</div>
+
+
+
 
     <?php require("footer.php"); ?>
 

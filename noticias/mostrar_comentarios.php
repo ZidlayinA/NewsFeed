@@ -7,13 +7,27 @@ $stmt->bindParam(':id_noticia', $noticia['id_noticia']);
 $stmt->execute();
 $comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-        <div class="comentarios">
-    <h3>Comentarios</h3>
-    <?php foreach ($comentarios as $comentario): ?>
-        <div class="comentario">
-            <p class="nombre"><strong><?= htmlspecialchars($comentario['nombre']); ?></strong> dijo:</p>
-            <p class="texto"><?= nl2br(htmlspecialchars($comentario['comentario'])); ?></p>
-            <p class="fecha"><?= htmlspecialchars($comentario['fecha']); ?></p>
+
+<div class="container comentarios">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <?php foreach ($comentarios as $comentario): ?>
+                <div class="card mb-3" style="max-width: 400px;">
+                    <div class="card-body">
+
+                        <h5 class="card-title text-primary"><?= htmlspecialchars($comentario['nombre']); ?></h5>
+
+                        <p class="card-text text-muted small"><?= nl2br(htmlspecialchars($comentario['comentario'])); ?></p>
+                    </div>
+                    <div class="card-footer text-muted text-center">
+                    <?php date_default_timezone_set('America/Mexico_City'); ?>
+<?= date("d/m/Y H:i:s"); ?>
+
+
+
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
+    </div>
 </div>

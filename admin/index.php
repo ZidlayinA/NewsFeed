@@ -25,8 +25,8 @@ $rol = $_SESSION['rol'];
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/cac8e89f4d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../estaticos/css/style.css">
-    
-    <title>Admin panel</title>
+    <link rel="icon" href="../imagenes/periodico.png" type="image/png">
+    <title>Index</title>
 
 </head>
 

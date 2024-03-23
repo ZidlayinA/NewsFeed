@@ -16,50 +16,46 @@ extract($_REQUEST);
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/cac8e89f4d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../estaticos/css/style.css">
-    <link rel="icon" href="../imagenes/periodico.png" type="image/png">
-    <title>Agregar usuario</title>
+    <title>DIARIO</title>
 </head>
 
-<body style="background-image: url('../imagenes/fondo.jpeg')">
-
-
+<body>
     <div class="">
         <?php require("menu.php"); ?>
     </div>
     <main class="container-fluid">
-    <div class=" text-center">
         <div class="row">
-            <div class="form-signin bg-secondary-white card col-4 offset-4 p-3 mt-2 shadow-lg rounded-4">
-                <div class="mb-4">
-                <?php if ($_SESSION['rol'] == "admin"): ?> </div>
+            <div class="col-12 text-center">
+                <?php if ($_SESSION['rol'] == "admin"): ?>
                     <h1> Registrar nuevo usuario</h1>
                 <?php else: ?>
+                    <h1>Crear cuenta autor</h1>
                 <?php endif; ?>
             </div>
-         
-            <form action="../backend/agregar_usuario.php" method="POST">
-                <img class="mb-4" src="../imagenes/logos/agregar-usuario.png" alt="" width="130" />
+            <form action="../backend/agregar_usuario.php" method="POST"
+                class="bg-secondary-subtle py-5 col-8 offset-2 card text-bg-light shadow-lg p-3 mt-3">
 
-                <div class="mb-1 form-floating">
-                <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuario" required>
-                <label for="usuario" class="form-label">  Usuario</label>
+                <div class=" input-group input-group-sm mb-3">
+                    <label for="usuario" class="input-group-text">Usuario</label>
+                    <input type="text" class="form-control" name="usuario" id="usuario" required>
+                    <div id="nombre-usuario-error" class="input-group-text"></div>
+
                 </div>
 
-                <div class="mb-1 form-floating">
-                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
-                <label for="usuario" class="form-label"> Nombre </label>
+                <div class="input-group input-group-sm mb-3">
+                    <label for="nombre" class="input-group-text">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" required>
                 </div>
 
-                <div class="mb-1 form-floating">
-                <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellido" required>
-                <label for="usuario" class="form-label">  Apellido</label>
+                <div class="input-group input-group-sm mb-3">
+                    <label for="apellido" class="input-group-text">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" id="apellido" required>
                 </div>
 
-                <div class="mb-1 form-floating">
-                <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required>
-                <label for="usuario" class="form-label">  Contraseña</label>
+                <div class="input-group input-group-sm mb-3">
+                    <label for="password" class="input-group-text">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" required>
                 </div>
-
 
                 <?php if ($_SESSION['rol'] == "admin"): ?>
                     <div class="input-group input-group-sm mb-3">
@@ -73,14 +69,13 @@ extract($_REQUEST);
                     <input type="hidden" value="autor" name="rol">
                 <?php endif; ?>
                 <div class="col-12 justify-content-center text-center">
-    <button class="btn btn-primary mx-2" id="crear_cuenta_btn" type="submit">Crear cuenta</button>
-    <a href="index.php" class="btn btn-danger mx-2">Cancelar</a>  
-</div>
+<button class="btn btn-sm btn-dark" id="crear_cuenta_btn" type="submit" style="background-color: #87CEEB; color: #ffffff;">Crear cuenta</button>
 
+                    <a href="index.php" class="btn btn-sm btn-outline-danger">Cancelar</a>
+                </div>
             </form>
-        </div> 
+        </div>
     </main>
-    </div>
 
     <?php require("../noticias/footer.php"); ?>
 
@@ -140,4 +135,3 @@ extract($_REQUEST);
 </body>
 
 </html>
-

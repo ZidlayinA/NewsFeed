@@ -1,5 +1,4 @@
 <!-- PHP INIT CONFIGURATIONS -->
-<?php require("menu.php"); ?>
 <?php
 session_start();
 extract($_REQUEST);
@@ -12,7 +11,6 @@ if (isset($_SESSION['usuario_logueado']))
 <html lang="es">
 
 <head>
-<link rel="icon" href="../imagenes/periodico.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estaticos/css/style.css">
@@ -24,38 +22,17 @@ if (isset($_SESSION['usuario_logueado']))
     <script src="https://kit.fontawesome.com/cac8e89f4d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../estaticos/css/style.css">
     
-    
-    <title>Inicio de sesion</title>
-    <style>
-        .book-animation {
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 120px;
-            height: 150px;
-            background: url('https://image.flaticon.com/icons/png/512/25/25634.png') no-repeat center center;
-            animation: bookRotate 5s linear infinite;
-        }
-
-        @keyframes bookRotate {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+    <title>Autenticación</title>
 </head>
-<body style="background-image: url('../imagenes/fondo.jpeg')">
- 
 
-    <div class=" text-center position-relative">
-        <div class="book-animation"></div>
+<body>
+    <div class="">
+        <?php require("menu.php"); ?>
+    </div>
+    <div class=" text-center">
         <div class="row">
-            <div class="form-signin bg-secondary-white card col-4 offset-4 p-3 mt-2 shadow-lg rounded-4">
-                <div class="mb-4">
+            <div class="form-signin bg-secondary-subtle card col-8 offset-2 p-3 mt-5 shadow-lg rounded-4">
+                <div class="mb-5">
                     <?php
                     if (isset($mensaje)) {
                         print("<small class='alert alert-danger'>" . $mensaje . "</small>");
@@ -64,9 +41,9 @@ if (isset($_SESSION['usuario_logueado']))
                 </div>
 
                 <form action="../backend/login.php" method="post" class="">
-                    <img class="mb-4" src="../imagenes/logos/login.png" alt="" width="150" />
-                    <h1 class="h3 mb-1 fw-normal"></h1>
-                    <div class="mb-1 form-floating">
+                    <img class="mb-4" src="../imagenes/logos/user2.png" alt="" width="150" />
+                    <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+                    <div class="mb-3 form-floating">
 
                         <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario"
                             required>
@@ -82,17 +59,14 @@ if (isset($_SESSION['usuario_logueado']))
                             required>
 
                         <label for="password" class="form-label">
-                            Contraseña
+                            Password
                         </label>
 
                     </div>
 
-
-
-                    
                     <div class="mb-3">
-                  
-                        <input type="submit" class="btn btn-primary shadow-lg border-1 btn-submit" id="enviar" name="enviar"
+
+                        <input type="submit" class="btn btn-primary shadow-lg border-1" id="enviar" name="enviar"
                             value="Acceder">
 
                     </div>
@@ -100,7 +74,6 @@ if (isset($_SESSION['usuario_logueado']))
             </div>
         </div>
         <?php require("../noticias/footer.php"); ?>
-    </div>
 </body>
 
 </html>

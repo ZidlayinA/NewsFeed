@@ -10,24 +10,35 @@ if (!isset($_SESSION['usuario_logueado'])) {
     $rol = $_SESSION['rol'];
 }
 ?>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function(OneSignal) {
+    OneSignal.init({
+      appId: "ac1b55ca-738a-455e-962d-89738b59ca47",
+      safari_web_id: "web.onesignal.auto.283a79e5-74a1-4b9f-8067-e75dbf426ba4",
+      notifyButton: {
+        enable: true,
+      },
+      allowLocalhostAsSecureOrigin: true,
+    });
+  });
+</script>
 
 <!-- MENÚ NAVBAR PARA TODO EL SITIO -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow mb-5">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow mb-5">
     <div class="container">
         <a href="index.php" class="navbar-brand">
-            
+            <img src="../imagenes/logos/logo.png" alt="" width="150">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-           
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <h3 style="color: white;">El periodico <span style="color: blue;">.</span></h3>
-        <ul class="navbar-nav mx-auto"> 
-            
 
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                     <a href="index.php" class="nav-link link-underline">Inicio</a>
                 </li>
@@ -80,16 +91,12 @@ if (!isset($_SESSION['usuario_logueado'])) {
                         </ul>
                     </div>
                 <?php else: ?>
-                    <a href="../admin/form_login.php" class="btn" >
-    <img src="../imagenes/logos/login2.png" alt="Ingresar" style="width: 40px; height: auto;"></a>
-    
-    <a href="../admin/agregar_usuario.php" class="btn" >
-    <img src="../imagenes/logos/registrar.png" alt="Ingresar" style="width: 40px; height: auto;"></a>
-
-
+                    <a href="../admin/form_login.php" class="btn btn-outline-dark img-fluid">
+                        Ingresar
+                    </a>
+                    <a class="nav-link text-center link-primary" href="../admin/agregar_usuario.php">Quiero ser autor</a>
                 <?php endif; ?>
             </div>
         </div>
     </div>
 </nav>
- 

@@ -1,4 +1,5 @@
-Instala las herramientas node y npm
+- Instalacion de la PWA
+Instala las herramientas nodejs y npm node package magnament
 https://nodejs.org/en/download/
 
 ahora ejecuta este comando un cmd
@@ -13,3 +14,5 @@ D:\xampp\htdocs\diario_web_demo-main
 workbox wizard
 
 workbox generateSW workbox-config.js
+
+

@@ -25,7 +25,7 @@ if (!isset($_SESSION['usuario_logueado']))
 
     <link rel="stylesheet" href="../estaticos/css/style.css">
     <title>Agregar noticia</title>
-
+<script src="../backend/BaseDeDatos.js"></script>
 </head >
 
 <body class="">

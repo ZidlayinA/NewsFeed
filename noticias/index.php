@@ -39,7 +39,7 @@ $noticias = $resultados->fetchAll(PDO::FETCH_ASSOC);
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../imagenes/logos/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../estaticos/css/style.css">
@@ -63,18 +63,102 @@ $noticias = $resultados->fetchAll(PDO::FETCH_ASSOC);
     navigator.serviceWorker.register("sw.js");
   }
 </script>
+
+<style>
+  /* Estilos para la pantalla de carga */
+  .loader {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column; /* Alinear elementos verticalmente */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader img {
+    width: 100px; /* Tamaño de la imagen de carga */
+  }
+
+  /* Estilos para el mensaje de bienvenida */
+  .loader p {
+    font-size: 50px; /* Tamaño del texto */
+    margin-bottom: 20px; /* Espacio entre el mensaje de bienvenida y la imagen */
+  }
+
+  /* Estilos para ocultar la página mientras se carga */
+  body.loading {
+    overflow: hidden;
+  }
+</style>
 </head>
 
-<body>
+<body class="loading">
+
+
+<div id="mensajeConexion" style="position: fixed; bottom: 10px; right: 10px; padding: 10px; background-color: #333; color: white; border-radius: 5px; display: none;">
+        Sin conexión a Internet
+    </div>
+
     <!-- NAVBAR -->
     <div class="">
         <?php require("menu.php"); ?>
     </div>
 
+    <div class="loader">
+  <p><b>Welcome</b</p>
+  <img src="Loading.gif" alt="Cargando...">
+</div>
+
     <!-- HEADER -->
     <header>
     </header>
 
+
+    <script>
+        // Función para verificar si hay conexión a Internet y mostrar el mensaje
+        function verificarConexion() {
+            var mensaje = document.getElementById('mensajeConexion');
+            if (navigator.onLine) {
+                mensaje.textContent = 'Con conexión a Internet';
+                mensaje.style.backgroundColor = '#007bff'; // Cambiar color de fondo para indicar conexión
+            } else {
+                mensaje.textContent = 'Sin conexión a Internet';
+                mensaje.style.backgroundColor = '#333'; // Restaurar color de fondo original
+            }
+            mensaje.style.display = 'block'; // Mostrar el mensaje
+        }
+
+        // Verificar la conexión cuando la PWA se carga por primera vez
+        verificarConexion();
+
+        // Agregar event listener para verificar cambios en la conexión
+        window.addEventListener('online', verificarConexion);
+        window.addEventListener('offline', verificarConexion);
+    </script>
+
+    <script>
+        // Verificamos si el navegador soporta el API de mediaDevices
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Pedimos permiso para acceder a la cámara
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            // El usuario ha otorgado permiso, puedes usar el stream de la cámara aquí
+            console.log('Permiso concedido para acceder a la cámara');
+        })
+        .catch(function(error) {
+            // El usuario ha denegado el acceso o ocurrió un error
+            console.error('Error al acceder a la cámara:', error);
+        });
+} else {
+    console.error('getUserMedia no está disponible en este navegador');
+}
+
+    </script>
     <!-- CONTENT -->
     <div class="container-fluid">
 
@@ -280,4 +364,13 @@ $noticias = $resultados->fetchAll(PDO::FETCH_ASSOC);
         form.reset();
         input.focus();
     });
+</script>
+
+    <script>
+  // JavaScript para ocultar la pantalla de carga después de un cierto tiempo
+  setTimeout(function() {
+    const loader = document.querySelector(".loader");
+    loader.style.display = "none";
+    document.body.classList.remove("loading");
+  }, 1000); // Tiempo en milisegundos (en este caso, 3 segundos)
 </script>

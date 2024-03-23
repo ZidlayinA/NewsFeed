@@ -26,7 +26,7 @@ require("../backend/conexion.php");
         echo "<script>window.location= 'noticia.php'</script>";
     
 }else {
-    echo "error";
+    echo "herror";
 }
 
 // Cerrar la conexión
